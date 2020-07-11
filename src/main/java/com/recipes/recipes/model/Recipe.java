@@ -16,7 +16,10 @@ public class Recipe {
     private String description;
     private String author;
 
-    private Recipe() {}
+    // Need default constructor for entity
+    private Recipe() {
+
+    }
 
     public Recipe(String name, String description, String author) {
         this.name = name;
@@ -24,5 +27,16 @@ public class Recipe {
         this.author = author;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
 
 }
