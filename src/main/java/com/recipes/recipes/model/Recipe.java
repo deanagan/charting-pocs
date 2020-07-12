@@ -9,7 +9,6 @@ import lombok.Data;
 
 @Data
 @Entity
-
 public class Recipe {
     private @Id @GeneratedValue Long id;
     private String name;
@@ -25,6 +24,10 @@ public class Recipe {
         this.name = name;
         this.description = description;
         this.author = author;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getName() {
