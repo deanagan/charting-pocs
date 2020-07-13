@@ -2,6 +2,7 @@ package com.recipes.recipes.model;
 
 import java.net.URISyntaxException;
 import java.util.Collection;
+import java.net.URI;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
 @RequestMapping("/api")
@@ -30,6 +32,10 @@ public class RecipesController {
     @PostMapping("/recipes")
     ResponseEntity<Recipe> createRecipe(@Validated @RequestBody Recipe recipe) throws URISyntaxException {
         Recipe result = recipeRepository.save(recipe);
-        return ResponseEntity.ok().body(result);
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest()
+                                    .path("/{id}")
+                                    .buildAndExpand(result.getId())
+                                    .toUri();
+        return ResponseEntity.created(location).body(result);
     }
 }
