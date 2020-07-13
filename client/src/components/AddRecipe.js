@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
 export default class AddRecipe extends Component {
 
@@ -37,14 +36,25 @@ export default class AddRecipe extends Component {
             author: this.state.author,
             description: this.state.description
         }
+        let headers = new Headers();
+        headers.append("Content-Type", "application/json");
 
-        const {history} = this.props;
-        console.log(recipe);
-        axios.post("http://localhost:8080/api/recipes", recipe).then(result => {
-            history.push('/recipes');
-        })
+        var raw = JSON.stringify(recipe);
 
-        window.location.reload();
+        var requestOptions = {
+          method: 'POST',
+          headers: headers,
+          body: raw,
+          redirect: 'follow'
+        };
+
+        fetch("http://localhost:8080/api/recipes", requestOptions)
+          .then(response => response.text())
+          .then(result => {
+              console.log(result);
+              window.location.reload();
+          })
+          .catch(error => console.log('error', error));
     }
 
     render() {
@@ -71,7 +81,7 @@ export default class AddRecipe extends Component {
                     </div>
 
                     <div className="row">
-                        <button className="waves-effect waves-light btn" type="submit" name="action">Submit</button>
+                        <input className="waves-effect waves-light btn" type="submit" name="action" value="Add Recipe" />
                     </div>
 
 
