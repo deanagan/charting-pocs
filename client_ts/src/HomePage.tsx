@@ -1,10 +1,34 @@
-import React from 'react';
+/** @jsx jsx */
+import { css, jsx } from '@emotion/core';
+import { AddRecipeButton } from './Styles';
 
 export const HomePage = () => (
-<div>
-    <div>
-        <h2>Recipes</h2>
-        <button>Add a new recipe</button>
+  <div
+    css={css`
+      margin: 50px auto 20px auto;
+      padding: 30px 20px;
+      max-width: 600px;
+    `}
+  >
+    <div
+      css={css`
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    `}
+    >
+      <h2
+        css={css`
+          font-size: 15px;
+          font-weight: bold;
+          margin: 10px 0px 5px;
+          text-align: center;
+          text-transform: uppercase;
+        `}
+      >
+        New Recipe
+      </h2>
+      <AddRecipeButton>Add Recipe</AddRecipeButton>
     </div>
-</div>
+  </div>
 );
