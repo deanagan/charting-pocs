@@ -3,6 +3,7 @@ import { FC } from 'react';
 import { css, jsx } from '@emotion/core';
 import { gray5, accent2 } from './Styles';
 import { RecipeData } from './RecipeData';
+import { Recipe } from './Recipe';
 
 interface Props {
     data: RecipeData[];
@@ -21,7 +22,7 @@ export const RecipeList: FC<Props> = ({data}) => (
             box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.16);
         `}
     >
-        {data.map(recipe => (
+        { data.map(recipe => (
         <li
             css={css`
                 border-top: 1px solid ${gray5};
@@ -30,6 +31,7 @@ export const RecipeList: FC<Props> = ({data}) => (
                 }
             `}
         >
+            <Recipe data={recipe} />
             key={recipe.id}
             css={css`
                 border-top: 1px solid ${gray5};
