@@ -27,6 +27,6 @@ const recipes: RecipeData[] = [
 ];
 
 
-export const geRecipes = (): RecipeData[] => {
+export const getRecipes = (): RecipeData[] => {
     return recipes;
 };
