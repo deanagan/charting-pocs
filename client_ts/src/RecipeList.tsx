@@ -31,14 +31,14 @@ export const RecipeList: FC<Props> = ({data}) => (
                 }
             `}
         >
-            <Recipe data={recipe} />
+            <Recipe data={recipe}
             key={recipe.id}
             css={css`
                 border-top: 1px solid ${gray5};
                 :first-of-type {
                   border-top: none;
                 }
-            `}
+            `}/>
         </li>
         ))}
     </ul>

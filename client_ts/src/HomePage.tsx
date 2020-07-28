@@ -1,6 +1,8 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
 import { AddRecipeButton } from './Styles';
+import { RecipeList } from './RecipeList';
+import { getRecipes } from './RecipeData';
 
 export const HomePage = () => (
   <div
@@ -26,9 +28,10 @@ export const HomePage = () => (
           text-transform: uppercase;
         `}
       >
-        New Recipe
+        Recipes
       </h2>
       <AddRecipeButton>Add Recipe</AddRecipeButton>
     </div>
+    <RecipeList data={getRecipes()} />
   </div>
 );
