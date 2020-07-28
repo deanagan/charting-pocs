@@ -26,7 +26,7 @@ export const HomePage = () => (
       <AddRecipeButton>Add Recipe</AddRecipeButton>
 
   </div>
-  <RecipeList data={getRecipes()} />
+  <RecipeList data={ getRecipes() }/>
   </div>
   </Page>
 );

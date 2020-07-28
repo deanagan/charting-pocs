@@ -7,9 +7,10 @@ import { Recipe } from './Recipe';
 
 interface Props {
     data: RecipeData[];
+    renderItem?: (item: RecipeData) => JSX.Element;
 }
 
-export const RecipeList: FC<Props> = ({data}) => (
+export const RecipeList: FC<Props> = ({data, renderItem}) => (
     <ul
         css={css`
             list-style: none;
@@ -31,14 +32,16 @@ export const RecipeList: FC<Props> = ({data}) => (
                 }
             `}
         >
-            <Recipe data={recipe}
-            key={recipe.id}
-            css={css`
-                border-top: 1px solid ${gray5};
-                :first-of-type {
-                  border-top: none;
-                }
-            `}/>
+            {
+                renderItem ? renderItem(recipe) :
+                <Recipe data={recipe}
+                key={recipe.id}
+                css={css`
+                    border-top: 1px solid ${gray5};
+                    :first-of-type {
+                    border-top: none;
+                    }
+            `}/>}
         </li>
         ))}
     </ul>
