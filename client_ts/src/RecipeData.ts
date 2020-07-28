@@ -21,7 +21,7 @@ const recipes: RecipeData[] = [
 {
     id: 3,
     name: "Eggplant Salad",
-    description: "A salad for all ages",
+    description: "A salad for all ages. This salad contains all the good stuff, eggplant, kale and arugula.",
     author: "Bob"
 },
 ];

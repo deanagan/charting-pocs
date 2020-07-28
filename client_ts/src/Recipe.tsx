@@ -2,13 +2,14 @@
 import { FC } from 'react';
 import { css, jsx } from '@emotion/core';
 import { RecipeData } from './RecipeData';
-import { gray3 } from './Styles';
+import { gray2, gray3 } from './Styles';
 
 interface Props {
   data: RecipeData;
+  showDescription?: boolean;
 }
 
-export const Recipe: FC<Props> = ({ data }) => (
+export const Recipe: FC<Props> = ({ data, showDescription = true }) => (
   <div
     css={css`
       padding: 10px 0px;
@@ -35,16 +36,18 @@ export const Recipe: FC<Props> = ({ data }) => (
       {`By ${data.author}`}
       {' '}
     </div>
-    <div
-      css={css`
-        font-size: 10px;
-        font-style: normal;
-        color: ${gray3};
-      `}
-    >
-      {' '}
-      {`${data.description}`}
-      {' '}
-    </div>
+    { showDescription && (
+        <div
+          css={css`
+            padding-bottom: 10px;
+            font-size: 10px;
+            font-style: normal;
+            color: ${gray2};
+          `}
+        >
+          {data.description.length > 50 ? `${data.description.substring(0, 50)}...`
+            : data.description}
+        </div>
+    )}
   </div>
 );
