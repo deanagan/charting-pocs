@@ -31,11 +31,11 @@ export const RecipeList: FC<Props> = ({data, renderItem}) => (
                     border-top: none;
                 }
             `}
+            key = {recipe.id}
         >
             {
                 renderItem ? renderItem(recipe) :
                 <Recipe data={recipe}
-                key={recipe.id}
                 css={css`
                     border-top: 1px solid ${gray5};
                     :first-of-type {
