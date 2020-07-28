@@ -27,6 +27,11 @@ const recipes: RecipeData[] = [
 ];
 
 
-export const getRecipes = (): RecipeData[] => {
+export const getRecipes = async (): Promise<RecipeData[]> => {
+    await wait(1000);
     return recipes;
+};
+
+const wait = (durationInMs: number): Promise<void> => {
+    return new Promise(resolve => setTimeout(resolve, durationInMs))
 };
