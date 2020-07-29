@@ -10,7 +10,9 @@ import { useEffect, useState } from 'react';
 export const HomePage = () => {
   const [recipes, setRecipes]
     = useState<RecipeData[] | null>(null);
+
   const [recipesLoading, setRecipesLoading] = useState(true);
+
   useEffect(() => {
     (async () => {
       const recipes = await getRecipes();
@@ -18,6 +20,10 @@ export const HomePage = () => {
       setRecipesLoading(false);
     })();
   }, []);
+
+  const handleAddRecipeClick = () => {
+    console.log('Add recipe function coming soon');
+  };
   return (
   <Page>
       <div
@@ -28,7 +34,7 @@ export const HomePage = () => {
           `}
       >
       <PageTitle>Recipes</PageTitle>
-      <AddRecipeButton>Add Recipe</AddRecipeButton>
+      <AddRecipeButton onClick={handleAddRecipeClick}>Add Recipe</AddRecipeButton>
 
       </div>
 

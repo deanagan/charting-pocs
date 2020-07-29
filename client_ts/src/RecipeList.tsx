@@ -10,7 +10,8 @@ interface Props {
     renderItem?: (item: RecipeData) => JSX.Element;
 }
 
-export const RecipeList: FC<Props> = ({data, renderItem}) => (
+export const RecipeList: FC<Props> =({data, renderItem}) => {
+    return (
     <ul
         css={css`
             list-style: none;
@@ -46,3 +47,4 @@ export const RecipeList: FC<Props> = ({data, renderItem}) => (
         ))}
     </ul>
 );
+};
