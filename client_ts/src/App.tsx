@@ -8,6 +8,7 @@ import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import { AddRecipePage } from './AddRecipePage';
 import { SearchRecipePage } from './SearchRecipePage';
 import { SignInPage } from './SignInPage';
+import { NotFoundPage } from './NotFoundPage';
 
 const App: React.FC = () => {
   return (
@@ -26,6 +27,7 @@ const App: React.FC = () => {
       <Route path='/search' component={SearchRecipePage} />
       <Route path='/add' component={AddRecipePage} />
       <Route path='/signin' component={SignInPage} />
+      <Route component={NotFoundPage} />
       </Switch>
   </div>
   </BrowserRouter>
