@@ -5,9 +5,10 @@ import { RecipeList } from './RecipeList';
 import { getRecipes, RecipeData } from './RecipeData';
 import { Page } from './Page';
 import { PageTitle } from './PageTitle';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, FC } from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 
-export const HomePage = () => {
+export const HomePage:FC<RouteComponentProps> = ({history}) => {
   const [recipes, setRecipes]
     = useState<RecipeData[] | null>(null);
 
@@ -22,7 +23,7 @@ export const HomePage = () => {
   }, []);
 
   const handleAddRecipeClick = () => {
-    console.log('Add recipe function coming soon');
+    history.push('/add');
   };
   return (
   <Page>
