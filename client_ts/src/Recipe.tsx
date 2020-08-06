@@ -3,6 +3,7 @@ import { FC } from 'react';
 import { css, jsx } from '@emotion/core';
 import { RecipeData } from './RecipeData';
 import { gray2, gray3 } from './Styles';
+import { Link } from 'react-router-dom';
 
 interface Props {
   data: RecipeData;
@@ -22,8 +23,15 @@ export const Recipe: FC<Props> = ({ data, showDescription = true }) => (
         font-size: 19px;
       `}
     >
-      {' '}
-      {data.name}{' '}
+      <Link
+        css={css`
+          text-decoration: none;
+          color: ${gray2};
+        `}
+        to={`recipes/${data.id}`}
+        >
+      {data.name}
+      </Link>
     </div>{' '}
     <div
       css={css`
