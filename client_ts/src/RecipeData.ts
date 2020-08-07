@@ -35,3 +35,12 @@ export const getRecipes = async (): Promise<RecipeData[]> => {
 const wait = (durationInMs: number): Promise<void> => {
     return new Promise(resolve => setTimeout(resolve, durationInMs))
 };
+
+
+export const getRecipe = async (
+    recipeId: number
+): Promise<RecipeData | null> => {
+    await wait(500);
+    const results = recipes.filter(r => r.id == recipeId);
+    return results.length === 0 ? null : results[0];
+};
