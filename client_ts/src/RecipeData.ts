@@ -41,6 +41,6 @@ export const getRecipe = async (
     recipeId: number
 ): Promise<RecipeData | null> => {
     await wait(500);
-    const results = recipes.filter(r => r.id == recipeId);
+    const results = recipes.filter(r => r.id === recipeId);
     return results.length === 0 ? null : results[0];
 };
