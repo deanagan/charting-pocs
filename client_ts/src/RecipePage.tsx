@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
 import { gray3, gray6 } from './Styles';
-import React, { FC, useState, Fragment, useEffect } from 'react';
+import { FC, useState, Fragment, useEffect } from 'react';
 import { Page } from './Page';
 import { RouteComponentProps } from 'react-router-dom';
 import { RecipeData, getRecipe } from './RecipeData';
@@ -57,6 +57,15 @@ export const RecipePage:FC<RouteComponentProps<RouteParams>> = ({
                         >
                         {recipe?.description}
                         </p>
+                        <div
+                            css={css`
+                            font-size: 12px;
+                            font-style: italic;
+                            color: ${gray3};
+                            `}
+                        >
+                            {`Created by ${recipe.author}`}
+                        </div>
                     </Fragment>
                 )}
             </div>
