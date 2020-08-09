@@ -27,7 +27,7 @@ const App: React.FC = () => {
       <Route path="/search" component={SearchRecipePage} />
       <Route path="/add" component={AddRecipePage} />
       <Route path="/signin" component={SignInPage} />
-      <Route path="/recipes/:recipeId" component={RecipePage} />
+      <Route exact path="/recipes/:recipeId" component={RecipePage} />
       <Route component={NotFoundPage} />
       </Switch>
   </div>
