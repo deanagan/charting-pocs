@@ -28,7 +28,7 @@ export const Header = () => {
     `}
   >
     <Link
-      to="./"
+      to="/recipes"
       css={css`
         font-size: 24px;
         font-weight: bold;
@@ -59,7 +59,7 @@ export const Header = () => {
       `}
     />
     <Link
-      to="./signin"
+      to="/signin"
       css={css`
         font-family: ${fontFamily};
         font-size: ${fontSize};
