@@ -5,6 +5,7 @@ import { FC, useState, Fragment, useEffect } from 'react';
 import { Page } from './Page';
 import { RouteComponentProps } from 'react-router-dom';
 import { RecipeData, getRecipe } from './RecipeData';
+import { CommentList } from './CommentList';
 
 interface RouteParams {
     recipeId: string;
@@ -66,6 +67,7 @@ export const RecipePage:FC<RouteComponentProps<RouteParams>> = ({
                         >
                             {`Created by ${recipe.author}`}
                         </div>
+                        <CommentList data={recipe.comments} />
                     </Fragment>
                 )}
             </div>
