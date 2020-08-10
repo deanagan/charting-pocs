@@ -4,7 +4,7 @@ import { HomePage } from './HomePage';
 import { css, jsx } from '@emotion/core';
 import { fontFamily, fontSize, gray2 } from './Styles';
 
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect, useLocation } from 'react-router-dom';
 import { AddRecipePage } from './AddRecipePage';
 import { SearchRecipePage } from './SearchRecipePage';
 import { SignInPage } from './SignInPage';
@@ -12,8 +12,9 @@ import { NotFoundPage } from './NotFoundPage';
 import { RecipePage } from './RecipePage';
 
 const App: React.FC = () => {
+  const { pathname } = useLocation();
   return (
-    <BrowserRouter>
+
     <div
       css={css`
       font-family: ${fontFamily};
@@ -23,17 +24,16 @@ const App: React.FC = () => {
 >
       <Header />
       <Switch>
-      <Redirect exact from='/' to='/' />
-
+      <Redirect from="/:url*(/+)" to={pathname.slice(0,-1)} />
+      <Route exact path="/recipes" component={HomePage} />
       <Route path="/recipes/search" component={SearchRecipePage} />
       <Route path="/recipes/add" component={AddRecipePage} />
       <Route path="/recipes/signin" component={SignInPage} />
       <Route exact path="/recipes/:recipeId" component={RecipePage} />
-      <Route exact path="/recipes" component={HomePage} />
       <Route component={NotFoundPage} />
       </Switch>
     </div>
-  </BrowserRouter>
+
   );
 }
 
