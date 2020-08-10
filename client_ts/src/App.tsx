@@ -23,12 +23,13 @@ const App: React.FC = () => {
 >
       <Header />
       <Switch>
-      <Redirect exact from='/' to='/recipes' />
-      <Route exact path="/recipes" component={HomePage} />
+      <Redirect exact from='/' to='/' />
+
       <Route path="/recipes/search" component={SearchRecipePage} />
       <Route path="/recipes/add" component={AddRecipePage} />
       <Route path="/recipes/signin" component={SignInPage} />
       <Route exact path="/recipes/:recipeId" component={RecipePage} />
+      <Route exact path="/recipes" component={HomePage} />
       <Route component={NotFoundPage} />
       </Switch>
     </div>
