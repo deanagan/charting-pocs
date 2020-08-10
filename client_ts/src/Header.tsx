@@ -59,7 +59,7 @@ export const Header = () => {
       `}
     />
     <Link
-      to="/signin"
+      to="/recipes/signin"
       css={css`
         font-family: ${fontFamily};
         font-size: ${fontSize};

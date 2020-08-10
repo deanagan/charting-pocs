@@ -23,7 +23,7 @@ export const HomePage:FC<RouteComponentProps> = ({history}) => {
   }, []);
 
   const handleAddRecipeClick = () => {
-    history.push('/add');
+    history.push('/recipes/add');
   };
   return (
   <Page>

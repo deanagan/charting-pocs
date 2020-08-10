@@ -24,13 +24,13 @@ const App: React.FC = () => {
       <Header />
       <Switch>
       <Route exact path="/recipes" component={HomePage} />
-      <Route path="/search" component={SearchRecipePage} />
-      <Route path="/add" component={AddRecipePage} />
-      <Route path="/signin" component={SignInPage} />
+      <Route path="/recipes/search" component={SearchRecipePage} />
+      <Route path="/recipes/add" component={AddRecipePage} />
+      <Route path="/recipes/signin" component={SignInPage} />
       <Route exact path="/recipes/:recipeId" component={RecipePage} />
       <Route component={NotFoundPage} />
       </Switch>
-  </div>
+    </div>
   </BrowserRouter>
   );
 }
