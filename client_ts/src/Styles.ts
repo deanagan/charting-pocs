@@ -1,18 +1,36 @@
 import styled from '@emotion/styled';
 
-export const gray1 = '#383737';
-export const gray2 = '#5c5a5a';
-export const gray3 = '#857c81';
+export const white1 = '#FFFFFF';
+export const white2 = '#B9B6B8';
+export const white3 = '#b9b6b8';
 export const gray4 = '#b9b9b9';
 export const gray5 = '#e3e2e2';
 export const gray6 = '#f7f8fa';
-export const primary1 = '#681c41';
-export const primary2 = '#824c67';
+export const primary1 = '#B1D076';
+export const primary2 = '#99C24D';
 export const accent1 = '#dbb365';
-export const accent2 = '#efd197';
+export const accent2 = '#048ba8';
 export const fontFamily = "'Segoe UI', 'Helvetica Neue',sans-serif";
 export const fontSize = '16px';
 
+export const backgroundColour1 = '#1C2835';
+export const backgroundColour2 = '#2F2D2E';
+
+export const Line = styled.div`
+  display: table-row;
+`;
+
+export const LineNo = styled.span`
+  display: table-cell;
+  text-align: right;
+  padding-right: 1em;
+  user-select: none;
+  opacity: 0.5;
+`;
+
+export const LineContent = styled.span`
+  display: table-cell;
+`;
 
 export const AddRecipeButton = styled.button`
     background-color: ${primary2};
@@ -22,7 +40,7 @@ export const AddRecipeButton = styled.button`
     font-family: ${fontFamily};
     font-size: ${fontSize};
     padding: 5px 10px;
-    color: white;
+    color: ${white1};
     cursor: pointer;
         :hover
         {
