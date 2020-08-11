@@ -46,7 +46,7 @@ export const HomePage:FC<RouteComponentProps> = ({history}) => {
                 font-size: 18px;
                 font-style: italic;
               `}>
-            Loading yummy recipes...
+            Loading awesome code recipes...
         </div>
       ) : (
         <RecipeList data={ recipes || [] }/>
