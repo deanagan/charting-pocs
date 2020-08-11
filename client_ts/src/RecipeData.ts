@@ -1,71 +1,86 @@
 import { Language } from 'prism-react-renderer';
 
 export interface CommentData {
-    commentId: number;
-    comment: string;
-    topic: string;
-    created: Date;
+  commentId: number;
+  comment: string;
+  topic: string;
+  created: Date;
 }
 
 export interface RecipeData {
-    id: number;
-    name: string;
-    description: string;
-    code: string;
-    author: string;
-    language: Language;
-    comments: CommentData[];
+  id: number;
+  name: string;
+  description: string;
+  code: string;
+  author: string;
+  language: Language;
+  comments: CommentData[];
 }
 
 const recipes: RecipeData[] = [
-{
+  {
     id: 1,
-    name: "Emulating Switch/Case Statements With Dicts",
+    name: 'Emulating Switch/Case Statements With Dicts',
     description: `Python doesn’t have switch/case statements so it’s sometimes necessary
-                  to write long if…elif…else chains as a workaround.
+                      to write long if…elif…else chains as a workaround.
 
-                  One way to deal with long if…elif…else statements is to replace
-                  them with dictionary lookup tables that emulate the behavior of
-                  switch/case statements.
-                  `,
+                      One way to deal with long if…elif…else statements is to replace
+                      them with dictionary lookup tables that emulate the behavior of
+                      switch/case statements.
+                      `,
     code: `def dispatch_dict(operator, x, y):
-              return {
-              'add': lambda: x + y,
-              'sub': lambda: x - y,
-              'mul': lambda: x * y,
-              'div': lambda: x / y,
-              }.get(operator, lambda: None)()`,
-    language: "python",
-    author: "Dan Bader, Python Tricks: The Book",
+                  return {
+                  'add': lambda: x + y,
+                  'sub': lambda: x - y,
+                  'mul': lambda: x * y,
+                  'div': lambda: x / y,
+                  }.get(operator, lambda: None)()`,
+    language: 'python',
+    author: 'Dan Bader, Python Tricks: The Book',
     comments: [
-        {
-            commentId: 1,
-            comment: "",
-            topic: "python",
-            created: new Date()
-        }
-
-    ]
-},
-
-
+      {
+        commentId: 1,
+        comment: '',
+        topic: 'python',
+        created: new Date(),
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: 'Reversing a string',
+    description: `This snippet came from a code kata to reverse a string in Typescript using the spread operator.`,
+    code:
+  `function reverse(value: string): string {
+    // spread operator requires es6 or es2015
+    return [...value].reverse().join('');
+}`,
+    language: 'typescript',
+    author: 'unknown',
+    comments: [
+      {
+        commentId: 1,
+        comment: '',
+        topic: 'python',
+        created: new Date(),
+      },
+    ],
+  },
 ];
 
-
 export const getRecipes = async (): Promise<RecipeData[]> => {
-    await wait(1000);
-    return recipes;
+  await wait(1000);
+  return recipes;
 };
 
 const wait = (durationInMs: number): Promise<void> => {
-    return new Promise(resolve => setTimeout(resolve, durationInMs))
+  return new Promise((resolve) => setTimeout(resolve, durationInMs));
 };
 
-
 export const getRecipe = async (
-    recipeId: number
+  recipeId: number,
 ): Promise<RecipeData | null> => {
-    await wait(500);
-    const results = recipes.filter(r => r.id === recipeId);
-    return results.length === 0 ? null : results[0];
+  await wait(500);
+  const results = recipes.filter((r) => r.id === recipeId);
+  return results.length === 0 ? null : results[0];
 };
