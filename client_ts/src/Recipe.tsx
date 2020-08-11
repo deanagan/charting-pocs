@@ -2,7 +2,7 @@
 import { FC } from 'react';
 import { css, jsx } from '@emotion/core';
 import { RecipeData } from './RecipeData';
-import { gray2, gray3 } from './Styles';
+import { white2, white3 } from './Styles';
 import { Link } from 'react-router-dom';
 
 interface Props {
@@ -26,7 +26,7 @@ export const Recipe: FC<Props> = ({ data, showDescription = true }) => (
       <Link
         css={css`
           text-decoration: none;
-          color: ${gray2};
+          color: ${white2};
         `}
         to={`recipes/${data.id}`}
         >
@@ -37,7 +37,7 @@ export const Recipe: FC<Props> = ({ data, showDescription = true }) => (
       css={css`
         font-size: 12px;
         font-style: italic;
-        color: ${gray3};
+        color: ${white3};
       `}
     >
       {' '}
@@ -50,12 +50,14 @@ export const Recipe: FC<Props> = ({ data, showDescription = true }) => (
             padding-bottom: 10px;
             font-size: 10px;
             font-style: normal;
-            color: ${gray2};
+            color: ${white2};
           `}
         >
           {data.description.length > 50 ? `${data.description.substring(0, 50)}...`
             : data.description}
+
         </div>
+
     )}
   </div>
 );

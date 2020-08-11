@@ -1,7 +1,7 @@
 
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
-import { fontFamily, fontSize, gray2, gray1, gray5 } from './Styles';
+import { fontFamily, fontSize, white2, white1, gray5, backgroundColour1 } from './Styles';
 import { UserIcon } from './Icons';
 import { ChangeEvent } from 'react';
 import { Link } from 'react-router-dom';
@@ -22,7 +22,7 @@ export const Header = () => {
       align-items: center;
       justify-content: space-between;
       padding: 10px 20px;
-      background-color: #fff;
+      background-color: ${backgroundColour1};
       border-bottom: 1px solid ${gray5};
       box-shadow: 0 3px 7px 0 rgba(110, 112, 114, 0.21);
     `}
@@ -32,7 +32,7 @@ export const Header = () => {
       css={css`
         font-size: 24px;
         font-weight: bold;
-        color: ${gray1};
+        color: ${white1};
         text-decoration: none;
       `}
     >
@@ -49,7 +49,7 @@ export const Header = () => {
         padding: 8px 10px;
         border: 1px solid ${gray5};
         border-radius: 3px;
-        color: ${gray2};
+        color: ${white2};
         background-color: white;
         width: 200px;
         height: 30px;
@@ -65,7 +65,7 @@ export const Header = () => {
         font-size: ${fontSize};
         padding: 5px 10px;
         background-color: transparent;
-        color: ${gray2};
+        color: ${white2};
         text-decoration: none;
         cursor: pointer;
         span {

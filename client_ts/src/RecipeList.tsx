@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { FC } from 'react';
 import { css, jsx } from '@emotion/core';
-import { gray5, accent2 } from './Styles';
+import { gray5, accent2, backgroundColour2 } from './Styles';
 import { RecipeData } from './RecipeData';
 import { Recipe } from './Recipe';
 
@@ -17,7 +17,7 @@ export const RecipeList: FC<Props> =({data, renderItem}) => {
             list-style: none;
             margin: 10px 0 0 0 ;
             padding: 0px 20px;
-            background-color: #fff;
+            background-color: ${backgroundColour2};
             border-bottom-left-radius: 4px;
             border-bottom-right-radius: 4px;
             border-top: 3px solid ${accent2};

@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
 import { CommentData } from './RecipeData';
-import { gray3 } from './Styles';
+import { white3 } from './Styles';
 import { FC } from 'react';
 
 interface Props {
@@ -27,10 +27,10 @@ export const Comment: FC<Props> = ({ data }) => (
             css={css`
                 font-size: 12px;
                 font-style: italic;
-                color: ${gray3};
+                color: ${white3};
             `}
         >
-        {`Comment by ${data.author} on
+        {`Topic ${data.topic} on
         ${data.created.toLocaleDateString()} ${data.created.toLocaleTimeString()}`}
       </div>
     </div>
