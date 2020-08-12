@@ -41,7 +41,7 @@ export const Recipe: FC<Props> = ({ data, showDescription = true }) => (
       `}
     >
       {' '}
-      {`By ${data.author}`}
+      { data.author && `By ${data.author}`}
       {' '}
     </div>
     { showDescription && (

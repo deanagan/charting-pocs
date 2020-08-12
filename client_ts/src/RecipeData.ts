@@ -11,7 +11,7 @@ export interface RecipeData {
   name: string;
   description: string;
   code: string;
-  author: string;
+  author?: string;
   language: Language;
   comments: CommentData[];
 }
@@ -52,7 +52,6 @@ const recipes: RecipeData[] = [
     return [...value].reverse().join('');
 }`,
     language: 'typescript',
-    author: '',
     comments: [
       {
         commentId: 1,
