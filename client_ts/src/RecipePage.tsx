@@ -1,12 +1,13 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
-import { white3, gray6, backgroundColour2, Line, LineNo, LineContent } from './Styles';
+import { white3, gray6, backgroundColour2, Line, LineNo, LineContent, Pre } from './Styles';
 import { FC, useState, Fragment, useEffect } from 'react';
 import { Page } from './Page';
 import { RouteComponentProps } from 'react-router-dom';
 import { RecipeData, getRecipe } from './RecipeData';
 import { CommentList } from './CommentList';
 import Highlight, { defaultProps } from 'prism-react-renderer';
+import dracula from 'prism-react-renderer/themes/dracula';
 
 
 interface RouteParams {
@@ -68,9 +69,9 @@ export const RecipePage: FC<RouteComponentProps<RouteParams>> = ({ match }) => {
             >
               {`From ${recipe.author}`}
             </div>
-            <Highlight {...defaultProps} code={`${recipe.code}`} language={recipe.language}>
+            <Highlight {...defaultProps} theme={dracula} code={`${recipe.code.trim()}`} language={recipe.language} >
               {({ className, style, tokens, getLineProps, getTokenProps }) => (
-                <pre className={className} style={style}>
+                <Pre className={className} style={style}>
                   {tokens.map((line, i) => (
                     <Line key={i} {...getLineProps({ line, key: i })}>
                       <LineNo>{i + 1}</LineNo>
@@ -81,7 +82,7 @@ export const RecipePage: FC<RouteComponentProps<RouteParams>> = ({ match }) => {
                       </LineContent>
                     </Line>
                   ))}
-                </pre>
+                </Pre>
               )}
             </Highlight>
 
