@@ -2,8 +2,7 @@ import { Language } from 'prism-react-renderer';
 
 export interface CommentData {
   commentId: number;
-  comment: string;
-  topic: string;
+  comment?: string;
   created: Date;
 }
 
@@ -22,26 +21,25 @@ const recipes: RecipeData[] = [
     id: 1,
     name: 'Emulating Switch/Case Statements With Dicts',
     description: `Python doesn’t have switch/case statements so it’s sometimes necessary
-                      to write long if…elif…else chains as a workaround.
+                  to write long if…elif…else chains as a workaround.
 
-                      One way to deal with long if…elif…else statements is to replace
-                      them with dictionary lookup tables that emulate the behavior of
-                      switch/case statements.
-                      `,
+                  One way to deal with long if…elif…else statements is to replace
+                  them with dictionary lookup tables that emulate the behavior of
+                  switch/case statements.
+                  `,
     code: `def dispatch_dict(operator, x, y):
-                  return {
-                  'add': lambda: x + y,
-                  'sub': lambda: x - y,
-                  'mul': lambda: x * y,
-                  'div': lambda: x / y,
-                  }.get(operator, lambda: None)()`,
+  return {
+    'add': lambda: x + y,
+    'sub': lambda: x - y,
+    'mul': lambda: x * y,
+    'div': lambda: x / y,
+  }.get(operator, lambda: None)()`,
     language: 'python',
     author: 'Dan Bader, Python Tricks: The Book',
     comments: [
       {
         commentId: 1,
         comment: '',
-        topic: 'python',
         created: new Date(),
       },
     ],
@@ -50,18 +48,15 @@ const recipes: RecipeData[] = [
     id: 2,
     name: 'Reversing a string',
     description: `This snippet came from a code kata to reverse a string in Typescript using the spread operator.`,
-    code:
-  `function reverse(value: string): string {
-    // spread operator requires es6 or es2015
+    code: `function reverse(value: string): string {
     return [...value].reverse().join('');
 }`,
     language: 'typescript',
-    author: 'unknown',
+    author: '',
     comments: [
       {
         commentId: 1,
-        comment: '',
-        topic: 'python',
+        comment: 'The spread operator requires es6 or es2015.',
         created: new Date(),
       },
     ],
