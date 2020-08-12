@@ -16,6 +16,14 @@ export const fontSize = '16px';
 export const backgroundColour1 = '#1C2835';
 export const backgroundColour2 = '#2F2D2E';
 
+export const Pre = styled.pre`
+  text-align: left;
+  margin: 1em 0;
+  padding: 0.5em;
+  overflow: scroll;
+  font: ${fontSize};
+`;
+
 export const Line = styled.div`
   display: table-row;
 `;
