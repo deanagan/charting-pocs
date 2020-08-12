@@ -30,8 +30,8 @@ export const Comment: FC<Props> = ({ data }) => (
                 color: ${white3};
             `}
         >
-        {`Topic ${data.topic} on
-        ${data.created.toLocaleDateString()} ${data.created.toLocaleTimeString()}`}
+
+        {data.comment && `${data.created.toLocaleDateString()} ${data.created.toLocaleTimeString()}`}
       </div>
     </div>
 );
