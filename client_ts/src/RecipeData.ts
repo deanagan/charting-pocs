@@ -80,14 +80,14 @@ export const getRecipe = async (
 };
 
 export const searchRecipes = async (
-  searchKey: string,
+  criteria: string,
 ): Promise<RecipeData[]> => {
   await wait(800);
   return recipes.filter(
     q =>
-      q.language.toLowerCase().indexOf(searchKey.toLowerCase()) >=
+      q.language.toLowerCase().indexOf(criteria.toLowerCase()) >=
         0 ||
-      q.description.toLowerCase().indexOf(searchKey.toLowerCase()) >=
+      q.description.toLowerCase().indexOf(criteria.toLowerCase()) >=
         0
   );
 };
