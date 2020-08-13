@@ -78,3 +78,16 @@ export const getRecipe = async (
   const results = recipes.filter((r) => r.id === recipeId);
   return results.length === 0 ? null : results[0];
 };
+
+export const searchRecipes = async (
+  searchKey: string,
+): Promise<RecipeData[]> => {
+  await wait(800);
+  return recipes.filter(
+    q =>
+      q.language.toLowerCase().indexOf(searchKey.toLowerCase()) >=
+        0 ||
+      q.description.toLowerCase().indexOf(searchKey.toLowerCase()) >=
+        0
+  );
+};
