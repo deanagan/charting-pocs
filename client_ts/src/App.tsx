@@ -2,7 +2,7 @@
 import { Header } from './Header';
 import { HomePage } from './HomePage';
 import { css, jsx } from '@emotion/core';
-import { fontFamily, fontSize, white2 } from './Styles';
+import { fontFamily, white2, fontSizeSmall } from './Styles';
 
 import { Route, Switch, Redirect, useLocation } from 'react-router-dom';
 import { AddRecipePage } from './AddRecipePage';
@@ -18,7 +18,7 @@ const App: React.FC = () => {
     <div
       css={css`
       font-family: ${fontFamily};
-      font-size: ${fontSize};
+      font-size: ${fontSizeSmall};
       color: ${white2};
     `}
 >

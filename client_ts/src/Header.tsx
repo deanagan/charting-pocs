@@ -2,11 +2,12 @@
 import { css, jsx } from '@emotion/core';
 import {
   fontFamily,
-  fontSize,
+  fontSizeMedium,
   white2,
   white1,
   gray5,
   backgroundColour1,
+  fontSizeSmall,
 } from './Styles';
 import { UserIcon } from './Icons';
 import { ChangeEvent } from 'react';
@@ -35,13 +36,25 @@ export const Header = () => {
       <Link
         to="/recipes"
         css={css`
-          font-size: 24px;
+          @media screen and (max-width: 405px) {
+            .recipe-size {
+              font-size: ${fontSizeSmall};
+            }
+          }
+          @media screen and (min-width: 406px) {
+            .recipe-size {
+              font-size: ${fontSizeMedium};
+            }
+          }
+
           font-weight: bold;
           color: ${white1};
           text-decoration: none;
         `}
       >
+        <div className="recipe-size">
         Recipes
+        </div>
       </Link>{' '}
       <input
         type="text"
@@ -50,7 +63,7 @@ export const Header = () => {
         css={css`
           box-sizing: border-box;
           font-family: ${fontFamily};
-          font-size: ${fontSize};
+          font-size: ${fontSizeMedium};
           padding: 8px 10px;
           border: 1px solid ${gray5};
           border-radius: 3px;
@@ -72,7 +85,7 @@ export const Header = () => {
             }
           }
           font-family: ${fontFamily};
-          font-size: ${fontSize};
+          font-size: ${fontSizeSmall};
           padding: 5px 10px;
           background-color: transparent;
           color: ${white2};

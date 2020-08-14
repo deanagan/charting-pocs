@@ -1,5 +1,3 @@
-
-
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
 import { FC, useState, useEffect } from 'react';
@@ -9,21 +7,37 @@ import { RouteComponentProps } from 'react-router-dom';
 import { RecipeList } from './RecipeList';
 import { searchRecipes, RecipeData } from './RecipeData';
 
+export const SearchRecipePage: React.FC<RouteComponentProps> = ({
+  location,
+}) => {
+  const [language, description] = useState<RecipeData[]>([]);
 
-export const SearchRecipePage: React.FC<RouteComponentProps> = ({location }) => {
-    const [language, description] = useState<RecipeData[]>([]);
+  const searchParams = new URLSearchParams(location.search);
+  const search = searchParams.get('criteria') || '';
 
-    const searchParams = new URLSearchParams(location.search);
-    const search = searchParams.get('criteria') || '';
+  useEffect(() => {
+    const searchForIt = async (criteria: string) => {
+      const foundResults = await searchRecipes(criteria);
+      //TODO: Set the recipe?
+    };
+    searchForIt(search);
+  }, [search]);
 
-    useEffect(() => {
-        const searchForIt = async (criteria: string) => {
-          const foundResults = await searchRecipes(criteria);
-          //TODO: Set the recipe?
-        };
-        searchForIt(search);
-    }, [search]);
-
-
-    return <Page title="Search Results" />;
-  };
+  return (
+    <Page title="Search Results">
+      {' '}
+      {search && (
+        <p
+          css={css`
+            font-size: 16px;
+            font-style: italic;
+            margin-top: 0px;
+          `}
+        >
+          {' '}
+          for "{search}"{' '}
+        </p>
+      )}
+    </Page>
+  );
+};

@@ -11,7 +11,9 @@ export const primary2 = '#99C24D';
 export const accent1 = '#dbb365';
 export const accent2 = '#048ba8';
 export const fontFamily = "'Segoe UI', 'Helvetica Neue',sans-serif";
-export const fontSize = '16px';
+export const fontSizeTiny = '12px';
+export const fontSizeSmall = '16px';
+export const fontSizeMedium = '24px';
 
 export const backgroundColour1 = '#1C2835';
 export const backgroundColour2 = '#2F2D2E';
@@ -20,8 +22,8 @@ export const Pre = styled.pre`
   text-align: left;
   margin: 1em 0;
   padding: 0.5em;
-  overflow: scroll;
-  font: ${fontSize};
+  overflow: auto;
+  font: ${fontSizeSmall};
 `;
 
 export const Line = styled.div`
@@ -46,7 +48,7 @@ export const AddRecipeButton = styled.button`
     border-style: solid;
     border-radius: 5px;
     font-family: ${fontFamily};
-    font-size: ${fontSize};
+    font-size: ${fontSizeSmall};
     padding: 5px 10px;
     color: ${white1};
     cursor: pointer;
