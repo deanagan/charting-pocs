@@ -28,7 +28,7 @@ export const Recipe: FC<Props> = ({ data, showDescription = true }) => (
           text-decoration: none;
           color: ${white2};
         `}
-        to={`recipes/${data.id}`}
+        to={`/recipes/${data.id}`}
         >
       {data.name}
       </Link>
