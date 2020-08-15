@@ -10,12 +10,21 @@ import {
   fontSizeSmall,
 } from './Styles';
 import { UserIcon } from './Icons';
-import { ChangeEvent } from 'react';
-import { Link } from 'react-router-dom';
+import { ChangeEvent, FC, useState } from 'react';
+import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 
-export const Header = () => {
+
+export const Header:FC<RouteComponentProps> = (
+  { history, location}
+) => {
+  const searchParameters = new URLSearchParams(location.search);
+  const criteria = searchParameters.get('criteria') || '';
+  const [searchCriteria, setSearchCriteria] = useState(criteria);
+
+
   const handleSearchInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     console.log(e.currentTarget.value);
+    setSearchCriteria(e.currentTarget.value);
   };
   return (
     <div
@@ -56,9 +65,11 @@ export const Header = () => {
         Recipes
         </div>
       </Link>{' '}
+      <form>
       <input
         type="text"
         placeholder="Search..."
+        value={searchCriteria}
         onChange={handleSearchInputChange}
         css={css`
           box-sizing: border-box;
@@ -76,6 +87,7 @@ export const Header = () => {
           }
         `}
       />
+      </form>
       <Link
         to="/recipes/signin"
         css={css`
@@ -107,3 +119,6 @@ export const Header = () => {
     </div>
   );
 };
+
+
+export const RoutingHeader = withRouter(Header);
