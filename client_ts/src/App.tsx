@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { Header } from './Header';
+
 import { HomePage } from './HomePage';
 import { css, jsx } from '@emotion/core';
 import { fontFamily, white2, fontSizeSmall } from './Styles';
@@ -11,6 +11,8 @@ import { NotFoundPage } from './NotFoundPage';
 import { RecipePage } from './RecipePage';
 
 import { lazy, Suspense } from 'react';
+
+import { RoutingHeader as Header } from './Header';
 
 const AddRecipePage = lazy(() => import('./AddRecipePage'));
 
