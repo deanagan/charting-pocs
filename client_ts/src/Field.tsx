@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
-import { fontFamily, fontSizeMedium, gray5, gray6, white3 } from './Styles';
+import { fontFamily, gray5, gray6, white3, fontSizeSmall } from './Styles';
 import { FC, useContext, ChangeEvent } from 'react';
 import { FormContext } from './Form';
 
@@ -13,7 +13,7 @@ interface Props {
 const baseCSS = css`
   box-sizing: border-box;
   font-family: ${fontFamily};
-  font-size: ${fontSizeMedium};
+  font-size: ${fontSizeSmall};
   margin-bottom: 5px;
   padding: 8px 10px;
   border: 1px solid ${gray5};
