@@ -1,8 +1,8 @@
-import React, { FC, useContext, ChangeEvent } from 'react';
-import { FormContext } from './Form';
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
 import { fontFamily, fontSizeMedium, gray5, gray6, white3 } from './Styles';
+import { FC, useContext, ChangeEvent } from 'react';
+import { FormContext } from './Form';
 
 interface Props {
   name: string;

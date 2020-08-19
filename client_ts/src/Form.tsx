@@ -1,7 +1,7 @@
-import React, { FC, useState, createContext } from 'react';
-import { AddRecipeButton, gray5, gray6 } from './Styles';
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
+import { FC, useState, createContext } from 'react';
+import { AddRecipeButton, gray5, gray6 } from './Styles';
 
 export interface Values {
   [key: string]: any;
