@@ -1,8 +1,9 @@
 name: Update File
 
-on:
-  schedule:
-    - cron: "* * * * *" # Run every minute
+on: [] # Disable all events for now
+# on:
+#   schedule:
+#     - cron: "* * * * *" # Run every minute
 
 jobs:
   update-file:
