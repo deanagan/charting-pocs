@@ -22,3 +22,4 @@ else:
     # Write the formatted time to the file
     with open(file_path, "a") as file:
         file.write(formatted_time)
+        file.write("\n")
