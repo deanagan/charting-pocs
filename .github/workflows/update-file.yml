@@ -25,7 +25,6 @@ jobs:
 
       - name: Update file
         run: |
-          echo "Updated content" > scraper/progress.txt
           git config user.name "GitHub Actions"
           git config user.email "actions@users.noreply.github.com"
           git pull
