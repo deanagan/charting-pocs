@@ -10,7 +10,7 @@ formatted_time = current_time.strftime("%Y-%m-%d %H:%M:%S")
 file_path = "scraper/progress.txt"
 
 # Write the formatted time to the file
-with open(file_path, "w") as file:
+with open(file_path, "a") as file:
     file.write(formatted_time)
 
 print("Time written to", file_path)
