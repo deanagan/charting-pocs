@@ -10,7 +10,7 @@ formatted_time = current_time.strftime("%Y-%m-%d %H:%M:%S")
 file_path = "scraper/progress.txt"
 
 isNeedsClear = False
-with open(file_path, 'r') as file:
+with open(file_path, 'r+') as file:
     lines = file.readlines()
     if len(lines) > 10:
         isNeedsClear = True
@@ -21,5 +21,4 @@ if isNeedsClear:
 else:
     # Write the formatted time to the file
     with open(file_path, "a") as file:
-        lines = file.readlines()
         file.write(formatted_time)
