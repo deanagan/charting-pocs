@@ -1,2 +1,2 @@
-# Scoreboard
- This is a POC only
+# Charting POCs
+ This is a charting POC only
