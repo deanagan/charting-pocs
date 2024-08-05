@@ -1,5 +1,5 @@
 import React from 'react';
-import { ResponsiveBar } from '@nivo/bar';
+import { ResponsiveBar, BarDatum, BarCustomLayerProps } from '@nivo/bar';
 import './App.css'
 
 const data = [
@@ -10,14 +10,45 @@ const data = [
     { pokemon: 'Rayquaza', value: 650 }
 ];
 
+
+function CustomLayer(props: BarCustomLayerProps<BarDatum>) {
+    const { bars } = props;
+
+    // Calculate the line path and dots
+    const linePath = bars.map((bar, index) => {
+        const nextBar = bars[index + 1];
+        if (nextBar) {
+            return `M${bar.x + bar.width / 2},${bar.y} L${nextBar.x + nextBar.width / 2},${nextBar.y}`;
+        }
+        return null;
+    }).filter(Boolean).join(' ');
+
+    return (
+        <g>
+            {/* Draw the connecting line */}
+            <path d={linePath} fill="none" stroke="black" strokeWidth={2} />
+
+            {/* Draw the dots */}
+            {bars.map(bar => (
+                <circle
+                    key={bar.key}
+                    cx={bar.x + bar.width / 2}
+                    cy={bar.y}
+                    r={5}
+                    fill="black" />
+            ))}
+        </g>
+    );
+}
+
 const BarChart: React.FC = () => (
-    <div style={{ height: 400 }}>
+    <div style={{ height: 500 }}>
         <ResponsiveBar
             data={data}
             keys={['value']}
             indexBy="pokemon"
             margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
-            padding={0.3}
+            padding={0.6}
             valueScale={{ type: 'linear' }}
             indexScale={{ type: 'band', round: true }}
             colors={{ scheme: 'nivo' }}
@@ -25,7 +56,7 @@ const BarChart: React.FC = () => (
             axisTop={null}
             axisRight={null}
             axisBottom={{
-                tickSize: 5,
+                tickSize: 3,
                 tickPadding: 5,
                 tickRotation: 0,
                 legend: 'Pokemon',
@@ -69,6 +100,15 @@ const BarChart: React.FC = () => (
             ]}
             animate={true}
             motionConfig="gentle"
+            layers={[
+                'grid',
+                'axes',
+                'bars',
+                'markers',
+                'legends',
+                // @ts-expect-error disable false error
+                CustomLayer
+            ]}
         />
     </div>
 );
