@@ -26,7 +26,7 @@ function CustomLayer(props: BarCustomLayerProps<BarDatum>) {
     return (
         <g>
             {/* Draw the connecting line */}
-            <path d={linePath} fill="none" stroke="black" strokeWidth={2} />
+            <path d={linePath} fill="none" stroke="cyan" strokeWidth={1} />
 
             {/* Draw the dots */}
             {bars.map(bar => (
@@ -35,7 +35,7 @@ function CustomLayer(props: BarCustomLayerProps<BarDatum>) {
                     cx={bar.x + bar.width / 2}
                     cy={bar.y}
                     r={5}
-                    fill="black" />
+                    fill="cyan" />
             ))}
         </g>
     );
