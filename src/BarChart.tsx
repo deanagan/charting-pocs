@@ -41,6 +41,20 @@ function CustomLayer(props: BarCustomLayerProps<BarDatum>) {
     );
 }
 
+const theme = {
+    tooltip: {
+        container: {
+            background: '#333',
+            color: '#fff',
+            fontSize: '12px',
+            borderRadius: '2px',
+            boxShadow: '0 3px 9px rgba(0, 0, 0, 0.5)',
+            padding: '5px 9px',
+        },
+    },
+};
+
+
 const BarChart: React.FC = () => (
     <div style={{ height: 500 }}>
         <ResponsiveBar
@@ -109,6 +123,7 @@ const BarChart: React.FC = () => (
                 // @ts-expect-error disable false error
                 CustomLayer
             ]}
+            theme={theme}
         />
     </div>
 );
