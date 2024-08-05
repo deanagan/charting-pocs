@@ -5,7 +5,11 @@
   text-align: center;
   background-color: beige;
 }
-/* src/App.css */
+
+.title {
+  color: blue;
+}
+
 .chart-container {
   width: 100%;
   max-width: 100px; /* Adjust this value as needed */

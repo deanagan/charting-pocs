@@ -4,7 +4,7 @@ import './App.css';
 
 const App: React.FC = () => (
     <div className="App">
-        <h1>Pokemon Base Stat Chart</h1>
+        <h1 className="title">Pokemon Base Stat Chart</h1>
         <BarChart />
     </div>
 );
