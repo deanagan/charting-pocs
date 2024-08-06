@@ -1,5 +1,6 @@
 import React from 'react';
 import { ResponsiveBar, BarDatum, BarCustomLayerProps } from '@nivo/bar';
+import { curveCatmullRom, line } from 'd3-shape';
 import './App.css'
 
 const data = [
@@ -15,18 +16,27 @@ function CustomLayer(props: BarCustomLayerProps<BarDatum>) {
     const { bars } = props;
 
     // Calculate the line path and dots
-    const linePath = bars.map((bar, index) => {
-        const nextBar = bars[index + 1];
-        if (nextBar) {
-            return `M${bar.x + bar.width / 2},${bar.y} L${nextBar.x + nextBar.width / 2},${nextBar.y}`;
-        }
-        return null;
-    }).filter(Boolean).join(' ');
+    // const linePath = bars.map((bar, index) => {
+    //     const nextBar = bars[index + 1];
+    //     if (nextBar) {
+    //         return `M${bar.x + bar.width / 2},${bar.y} L${nextBar.x + nextBar.width / 2},${nextBar.y}`;
+    //     }
+    //     return null;
+    // }).filter(Boolean).join(' ');
+    const lineGenerator = line<{ x: number; y: number }>()
+    .x(d => d.x)
+    .y(d => d.y)
+    .curve(curveCatmullRom.alpha(0.5)); 
 
+    const linePath = lineGenerator(bars.map(bar => ({
+        x: bar.x + bar.width / 2,
+        y: bar.y
+    })));
+    
     return (
         <g>
             {/* Draw the connecting line */}
-            <path d={linePath} fill="none" stroke="cyan" strokeWidth={1} />
+            { linePath && <path d={linePath} fill="none" stroke="cyan" strokeWidth={1} /> }
 
             {/* Draw the dots */}
             {bars.map(bar => (
