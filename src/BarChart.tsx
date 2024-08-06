@@ -75,7 +75,8 @@ const BarChart: React.FC = () => (
             padding={0.6}
             valueScale={{ type: 'linear' }}
             indexScale={{ type: 'band', round: true }}
-            colors={{ scheme: 'nivo' }}
+            // colors={{ scheme: 'nivo' }}
+            colors="#989797" // Set the bar color to grey
             borderColor={{ from: 'color', modifiers: [['darker', 1.6]] }}
             axisTop={null}
             axisRight={null}
@@ -95,8 +96,8 @@ const BarChart: React.FC = () => (
                 legendPosition: 'middle',
                 legendOffset: -40
             }}
-            labelSkipWidth={12}
-            labelSkipHeight={12}
+            labelSkipWidth={999} // Setting to 999 hides the number for less than width=999
+            labelSkipHeight={999} // setting the 999 hides the number for less than height=999
             labelTextColor={{ from: 'color', modifiers: [['darker', 1.6]] }}
             legends={[
                 {
