@@ -1,0 +1,97 @@
+{
+    "data": [
+        {
+            "Id": 1,
+            "Name": "Steph",
+            "IsActive": true,
+            "Teams": [
+                {
+                    "Id": "gsw",
+                    "Name": "Golden State Warriors"
+                }
+            ]
+        },
+        {
+            "Id": 2,
+            "IsActive": true,
+            "Name": "Lebron",
+            "Teams": [
+                {
+                    "Id": "mh",
+                    "Name": "Miami Heat"
+                },
+                {
+                    "Id": "lal",
+                    "Name": "Los Angeles Lakers"
+                }
+            ]
+        },
+        {
+            "Id": 3,
+            "IsActive": true,
+            "Name": "Klay",
+            "Teams": [
+                {
+                    "Id": "gsw",
+                    "Name": "Golden State Warriors"
+                },
+                {
+                    "Id": "dm",
+                    "Name": "Dallas Mavericks"
+                }
+            ]
+        },
+        {
+            "Id": 4,
+            "IsActive": true,
+            "Name": "Kevin Durant",
+            "Teams": [
+                {
+                    "Id": "gsw",
+                    "Name": "Golden State Warriors"
+                },
+                {
+                    "Id": "ps",
+                    "Name": "Phoenix Suns"
+                }
+            ]
+        },
+        {
+            "Id": 5,
+            "IsActive": true,
+            "Name": "Kyrie",
+            "Teams": [
+                {
+                    "Id": "bn",
+                    "Name": "Brooklyn Nets"
+                },
+                {
+                    "Id": "dm",
+                    "Name": "Dallas Mavericks"
+                }
+            ]
+        },
+        {
+            "Id": 6,
+            "IsActive": true,
+            "Name": "Devin Booker",
+            "Teams": [
+                {
+                    "Id": "ps",
+                    "Name": "Phoenix Suns"
+                }
+            ]
+        },
+        {
+            "Id": 7,
+            "IsActive": false,
+            "Name": "Jason Kidd",
+            "Teams": [
+                {
+                    "Id": "dm",
+                    "Name": "Dallas Mavericks"
+                }
+            ]
+        }
+    ]
+}
