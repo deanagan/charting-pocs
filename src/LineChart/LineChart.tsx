@@ -26,7 +26,7 @@ const CustomBackgroundLayer: React.FC<CustomLayerProps> = ({ yScale, innerWidth 
                 y={yScaleFn(80)}       // y-axis value where the blue zone starts
                 width={innerWidth}        // Full chart width
                 height={yScaleFn(0) - yScaleFn(80)} // From y = 4 down to y = 0
-                fill="blue"
+                fill="red"
                 opacity={0.2}
             />
 
