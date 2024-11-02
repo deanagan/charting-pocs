@@ -3,7 +3,7 @@ name: Deploy Storybook to GitHub Pages
 on:
   push:
     branches:
-      - main  # Or specify any branch you want to trigger the deploy from
+      - master  # Or specify any branch you want to trigger the deploy from
 
 jobs:
   deploy:
