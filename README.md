@@ -19,3 +19,8 @@
 <pre>
   yarn storybook
 </pre>
+
+
+# TODO:
+- Check markers
+- Check logarithmic
